@@ -23,7 +23,55 @@
 		<script src="js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<h1>Hello, world!</h1>
-		<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+		<div class="container theme-showcase role= main">
+			<div class="jumbotron jumbotron-fluid">
+				<h1>TODO's</h1>
+			</div>
+
+			<div class="row">
+		        <div class="col-md-6">
+		          <table class="table">
+		            <thead>
+		              <tr>
+		                <th>Title</th>
+		                <th>Due Date</th>
+		                <th>Progress</th>
+		                <th>Description</th>
+		                <th></th>
+    					<th></th>
+		              </tr>
+		            </thead>
+		            <tbody>
+		            	<tr>
+			                <td>Homework</td>
+			                <td>17/5/3</td>
+			                <td>
+			                	<div class="progress">
+	        						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 30%"><span class="sr-only">30% Complete</span></div>
+	      						</div>
+	      					</td>
+			                <td></td>
+			            	<td><a class="btn btn-sm btn-primary">Edit</a></td>
+			            	<td><a class="btn btn-sm btn-danger">Delete</a></td>
+		            	</tr>
+		            	<tr>
+		            		<td>Important Stuff</td>
+			                <td>17/9/25</td>
+			                <td>
+			                	<div class="progress">
+	        						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 80%"><span class="sr-only">80% Complete</span></div>
+	      						</div>
+	      					</td>
+			                <td></td>
+			            	<td><a class="btn btn-sm btn-primary">Edit</a></td>
+			            	<td><a class="btn btn-sm btn-danger">Delete</a></td>
+		            	</tr>
+		            </tbody>
+		          </table>
+		        </div>
+			</div>
+
+		</div>
+	
 	</body>
 </html>
