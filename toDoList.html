@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>Bootstrap Testpage</title>
+		<title>todoList</title>
 
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -23,52 +23,108 @@
 		<script src="js/bootstrap.min.js"></script>
 	</head>
 	<body>
+
+		<!-- Fixed navbar -->
+	    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+	      <div class="container-fluid">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <!--<span class="sr-only">Toggle navigation</span>-->
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="#">TODO's</a>
+	        </div>
+	        <div id="navbar" class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav">
+	            <li><a href="#">Home</a></li>
+	            <li><a href="#tutorial">How to Edit</a></li>
+	            <li><a href="#about">About</a></li>
+	            <li><a href="#contact">Logout</a></li>
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      </div>
+	    </nav>
+
 		<div class="container theme-showcase role= main">
 			<div class="jumbotron jumbotron-fluid">
-				<h1>TODO's</h1>
+				<h1>Overview</h1>
 			</div>
 
+			<div class="container">
+				<button type="button" class="btn btn-lg btn-primary pull-right" href="#">Add</button>
+			</div>
+			
+			<div class="container">
 			<div class="row">
-		        <div class="col-md-6">
+		        <!--<div class="co">-->
 		          <table class="table">
 		            <thead>
-		              <tr>
-		                <th>Title</th>
-		                <th>Due Date</th>
-		                <th>Progress</th>
-		                <th>Description</th>
-		                <th></th>
-    					<th></th>
-		              </tr>
+		              	<tr>
+			                <th>Title</th>
+			                <th class="hidden-xs">Due Date</th>
+			                <th class="hidden-xs">Progress</th>
+			                <th class="hidden-xs">Description</th>
+			                <th class="hidden-xs"></th>
+		              	</tr>
 		            </thead>
 		            <tbody>
 		            	<tr>
 			                <td>Homework</td>
-			                <td>17/5/3</td>
-			                <td>
+			                <td class="hidden-xs">17/5/3</td>
+			                <td class="hidden-xs">
 			                	<div class="progress">
-	        						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 30%"><span class="sr-only">30% Complete</span></div>
+	        						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%"><span class="sr-only">30% Complete</span>
+	        						</div>
 	      						</div>
 	      					</td>
-			                <td></td>
-			            	<td><a class="btn btn-sm btn-primary">Edit</a></td>
-			            	<td><a class="btn btn-sm btn-danger">Delete</a></td>
+			                <td class="hidden-xs">
+			                	<div class="dropdown">
+	  								<button class="btn btn-sm btn-link dropdown-toggle" type="button" id="info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								    More Info
+									</button>
+							  		<div class="dropdown-menu" aria-labelledby="info">
+							    		<div class="container">
+							    			Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+							    		</div>
+							   	 	</div>
+								</div>
+			                </td>
+			            	<td class="hidden-xs">
+			            		<a class="btn btn-sm btn-primary glyphicon glyphicon-pencil" href="#"></a>
+			            		<a class="btn btn-sm btn-danger glyphicon glyphicon-trash" href="#"></a>
+			            		</td>
 		            	</tr>
 		            	<tr>
 		            		<td>Important Stuff</td>
-			                <td>17/9/25</td>
-			                <td>
+			                <td class="hidden-xs">17/9/25</td>
+			                <td class="hidden-xs">
 			                	<div class="progress">
-	        						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 80%"><span class="sr-only">80% Complete</span></div>
+	        						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"><span class="sr-only">80% Complete</span></div>
 	      						</div>
 	      					</td>
-			                <td></td>
-			            	<td><a class="btn btn-sm btn-primary">Edit</a></td>
-			            	<td><a class="btn btn-sm btn-danger">Delete</a></td>
-		            	</tr>
+			                <td class="hidden-xs">
+				                <div class="dropdown">
+		  							<button class="btn btn-sm btn-link dropdown-toggle" type="button" id="info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									    More Info
+									</button>
+								  	<div class="dropdown-menu" aria-labelledby="info">
+								    	<div class="container">
+								    		Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+								    	</div>
+								    </div>
+								</div>
+			                </td>
+			            	<td class="hidden-xs">
+			            		<a class="btn btn-sm btn-primary glyphicon glyphicon-pencil" href="#"></a>
+			            		<a class="btn btn-sm btn-danger glyphicon glyphicon-trash" href="#"></a>
+			            	</td>		            	
+			            </tr>
 		            </tbody>
 		          </table>
-		        </div>
+		        <!--</div>-->
+			</div><!-- table end-->
 			</div>
 
 		</div>
