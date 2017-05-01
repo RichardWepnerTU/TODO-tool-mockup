@@ -51,35 +51,31 @@
 			<div class="jumbotron jumbotron-fluid">
 				<h1>Overview</h1>
 			</div>
-
-			<div class="container">
-				<button type="button" class="btn btn-lg btn-primary pull-right" href="#">Add</button>
-			</div>
 			
-			<div class="container">
+			<div class="container hidden-xs">
 			<div class="row">
 		        <!--<div class="co">-->
 		          <table class="table">
 		            <thead>
 		              	<tr>
 			                <th>Title</th>
-			                <th class="hidden-xs">Due Date</th>
-			                <th class="hidden-xs">Progress</th>
-			                <th class="hidden-xs">Description</th>
-			                <th class="hidden-xs"></th>
+			                <th>Due Date</th>
+			                <th>Progress</th>
+			                <th>Description</th>
+			                <th></th>
 		              	</tr>
 		            </thead>
 		            <tbody>
 		            	<tr>
 			                <td>Homework</td>
-			                <td class="hidden-xs">17/5/3</td>
-			                <td class="hidden-xs">
+			                <td>17/5/3</td>
+			                <td>
 			                	<div class="progress">
 	        						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%"><span class="sr-only">30% Complete</span>
 	        						</div>
 	      						</div>
 	      					</td>
-			                <td class="hidden-xs">
+			                <td>
 			                	<div class="dropdown">
 	  								<button class="btn btn-sm btn-link dropdown-toggle" type="button" id="info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								    More Info
@@ -91,20 +87,20 @@
 							   	 	</div>
 								</div>
 			                </td>
-			            	<td class="hidden-xs">
+			            	<td>
 			            		<a class="btn btn-sm btn-primary glyphicon glyphicon-pencil" href="#"></a>
 			            		<a class="btn btn-sm btn-danger glyphicon glyphicon-trash" href="#"></a>
 			            		</td>
 		            	</tr>
 		            	<tr>
 		            		<td>Important Stuff</td>
-			                <td class="hidden-xs">17/9/25</td>
-			                <td class="hidden-xs">
+			                <td>17/9/25</td>
+			                <td>
 			                	<div class="progress">
 	        						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"><span class="sr-only">80% Complete</span></div>
 	      						</div>
 	      					</td>
-			                <td class="hidden-xs">
+			                <td>
 				                <div class="dropdown">
 		  							<button class="btn btn-sm btn-link dropdown-toggle" type="button" id="info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									    More Info
@@ -116,7 +112,7 @@
 								    </div>
 								</div>
 			                </td>
-			            	<td class="hidden-xs">
+			            	<td>
 			            		<a class="btn btn-sm btn-primary glyphicon glyphicon-pencil" href="#"></a>
 			            		<a class="btn btn-sm btn-danger glyphicon glyphicon-trash" href="#"></a>
 			            	</td>		            	
@@ -125,6 +121,19 @@
 		          </table>
 		        <!--</div>-->
 			</div><!-- table end-->
+			</div>
+
+			<div class="container hidden-sm hidden-md hidden-lg">
+				<div class="row">
+					<div class="list-group">
+						<a class="list-group-item" href="#">Homework</a>
+						<a class="list-group-item" href="#">Important Stuff</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="container">
+				<button type="button" class="btn btn-lg btn-primary pull-right" href="#">Add</button>
 			</div>
 
 		</div>
