@@ -26,6 +26,7 @@
 		
 		<script>
 			$(document).ready(function() {
+				// setup the slider in the edit dialog
 				$('#editProgress').slider({
 					formatter: function(value) {
 						return value + ' %';
@@ -35,6 +36,16 @@
 					'style': 'form-control'
 				}).on('slide', function(slideEvent) {
 					$('#editProgressDisplay').text(slideEvent.value + ' %');
+				});
+				
+				// initialize popovers (description)
+				$('[data-toggle="popover"]').popover();
+				
+				// auto hide all dialogs on Escape
+				$(document.body).on('keydown', function(event) {
+					if(event.keyCode == 27) {
+						$('.modal.in').modal('hide');
+					}
 				});
 			});
 		</script>
@@ -64,26 +75,26 @@
 	      </div>
 	    </nav>
 
-		<div class="container theme-showcase role= main">
-			<div class="jumbotron jumbotron-fluid">
+		<div class="container theme-showcase" role="main">
+			<div class="page-header">
 				<h1>Overview</h1>
 			</div>
 			
 			<div class="container hidden-xs">
 			<div class="row">
 		        <!--<div class="co">-->
-		          <table class="table">
+		          <table class="table table-hover table-condensed">
 		            <thead>
 		              	<tr>
 			                <th>Title</th>
 			                <th>Due Date</th>
 			                <th>Progress</th>
 			                <th>Description</th>
-			                <th></th>
+			                <th class="span1"></th>
 		              	</tr>
 		            </thead>
 		            <tbody>
-		            	<tr>
+		            	<tr ondblclick="$('#editPopup').modal('show');">
 			                <td>Homework</td>
 			                <td>17/5/3</td>
 			                <td>
@@ -94,7 +105,7 @@
 	      					</td>
 			                <td>
 			                	<div class="dropdown">
-	  								<button class="btn btn-sm btn-link dropdown-toggle" type="button" id="info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	  								<button class="btn btn-sm btn-link dropdown-toggle" type="button" data-trigger="focus" id="info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								    More Info
 									</button>
 							  		<div class="dropdown-menu" aria-labelledby="info">
@@ -104,12 +115,12 @@
 							   	 	</div>
 								</div>
 			                </td>
-			            	<td>
+			            	<td class="span1">
 			            		<a class="btn btn-sm btn-primary glyphicon glyphicon-pencil" href="#" data-toggle="modal" data-target="#editPopup"></a>
 			            		<a class="btn btn-sm btn-danger glyphicon glyphicon-trash" href="#" data-toggle="modal" data-target="#confirmDeletePopup"></a>
 			            		</td>
 		            	</tr>
-		            	<tr>
+		            	<tr ondblclick="$('#editPopup').modal('show');">
 		            		<td>Important Stuff</td>
 			                <td>17/9/25</td>
 			                <td>
@@ -118,7 +129,7 @@
 	      						</div>
 	      					</td>
 			                <td>
-				                <div class="dropdown">
+				                <!--<div class="dropdown">
 		  							<button class="btn btn-sm btn-link dropdown-toggle" type="button" id="info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									    More Info
 									</button>
@@ -127,12 +138,15 @@
 								    		Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
 								    	</div>
 								    </div>
-								</div>
+								</div>-->
+								<button type="button" class="btn btn-sm btn-link" data-toggle="popover" title="Important Stuff" data-placement="top" data-trigger="focus" data-content="Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.">
+									More Info
+								</button>
 			                </td>
 			            	<td>
 			            		<a class="btn btn-sm btn-primary glyphicon glyphicon-pencil" href="#" data-toggle="modal" data-target="#editPopup"></a>
 			            		<a class="btn btn-sm btn-danger glyphicon glyphicon-trash" href="#" data-toggle="modal" data-target="#confirmDeletePopup"></a>
-			            	</td>		            	
+			            	</td class="col-md-1">	            	
 			            </tr>
 		            </tbody>
 		          </table>
@@ -143,8 +157,8 @@
 			<div class="container hidden-sm hidden-md hidden-lg">
 				<div class="row">
 					<div class="list-group">
-						<a class="list-group-item" href="#" data-toggle="modal" data-target="#editPopup">Homework</a>
-						<a class="list-group-item" href="#" data-toggle="modal" data-target="#editPopup">Important Stuff</a>
+						<a class="list-group-item" href="#" data-toggle="modal" data-target="#editPopup"><span class="title">Homework</span><span class="dueDate" style="float:right;">2017/05/03</span></a>
+						<a class="list-group-item" href="#" data-toggle="modal" data-target="#editPopup"><span class="title">Important Stuff</span><span class="dueDate" style="float:right;">2017/09/25</span></a>
 					</div>
 				</div>
 			</div>
@@ -156,7 +170,7 @@
 		</div>
 		
 		<div id="createPopup" class="modal fade" role="dialog">
-			<div class="modal-dialog">
+			<form class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -165,7 +179,7 @@
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="inputTitle">Title</label>
-							<input type="title" class="form-control" id="inputTitle" placeholder="Enter title">
+							<input type="text" class="form-control" id="inputTitle" placeholder="Enter title" maxlength="160">
 						</div>
 						<div class="form-group">
 							<label for="addDueDate" class="col-2 col-form-label">Due Date</label>
@@ -181,15 +195,14 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-success" href="#" data-dismiss="modal">Save</button>
+						<button type="submit" class="btn btn-success" href="#" data-dismiss="modal">Save</button>
 						<button type="button" class="btn btn-link" href="#" data-dismiss="modal">Dismiss</button>
 					</div>
 				</div>
-
-			</div>
+			</form>
 		</div>
 		<div id="editPopup" class="modal fade" role="dialog">
-			<div class="modal-dialog">
+			<form class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -198,7 +211,7 @@
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="inputTitle">Title</label>
-							<input type="title" class="form-control" id="inputTitle" placeholder="Enter title" value="Important Stuff">
+							<input type="text" class="form-control" id="inputTitle" placeholder="Enter title" maxlength="160" value="Important Stuff">
 						</div>
 						<div class="form-group">
 							<label for="addDueDate" class="col-2 col-form-label">Due Date</label>
@@ -221,15 +234,14 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-success" href="#" data-dismiss="modal">Save</button>
+						<button type="submit" class="btn btn-success" href="#" data-dismiss="modal">Save</button>
 						<button type="button" class="btn btn-link" href="#" data-dismiss="modal">Dismiss</button>
 					</div>
 				</div>
-
-			</div>
+			</form>
 		</div>
 		<div id="confirmDeletePopup" class="modal fade" role="dialog">
-			<div class="modal-dialog">
+			<form class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -239,12 +251,11 @@
 						Do you really want to delete this ToDo?
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" href="#" data-dismiss="modal">Delete</button>
+						<button type="submit" class="btn btn-danger" href="#" data-dismiss="modal">Delete</button>
 						<button type="button" class="btn" href="#" data-dismiss="modal">Cancel</button>
 					</div>
 				</div>
-
-			</div>
+			</form>
 		</div>
 	</body>
 </html>
